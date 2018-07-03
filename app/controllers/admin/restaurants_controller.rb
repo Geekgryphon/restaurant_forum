@@ -1,4 +1,7 @@
 class Admin::RestaurantsController < ApplicationController
+
+  before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
+
   def index
     @restaurants = Restaurant.all
   end
@@ -7,10 +10,9 @@ class Admin::RestaurantsController < ApplicationController
     @restaurant = Restaurant.new
   end
 
-before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
+
 
   def show
-    @restaurant = Restaurant.find(params[:id])
   end
 
   def edit
