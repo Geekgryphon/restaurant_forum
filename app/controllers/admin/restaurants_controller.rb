@@ -7,6 +7,10 @@ class Admin::RestaurantsController < ApplicationController
     @restaurant = Restaurant.new
   end
 
+  def show
+    @restaurant = Restaurant.find(params[:id])
+  end
+
   def create
     @restaurant = Restaurant.new(restaurant_params)
     if @restaurant.save
@@ -23,5 +27,5 @@ class Admin::RestaurantsController < ApplicationController
   def restaurant_params
     params.require(:restaurant).permit(:name, :opening_hours, :tel, :address, :description)
   end
-  
+
 end
